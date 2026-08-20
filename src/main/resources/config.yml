@@ -1,0 +1,166 @@
+# =========================================================
+#  MegaPlugin Configuration
+#  Everything below can be changed without recompiling.
+# =========================================================
+
+punish:
+  gui-title: "&c&lPunish Player"
+  gui-size: 27
+  options:
+    warn:
+      slot: 10
+      material: PAPER
+      name: "&e&lWarn"
+      lore: ["&7Send a warning to the player"]
+      command: "warn %player% %reason%"
+    mute:
+      slot: 11
+      material: MUSHROOM_STEW
+      name: "&6&lMute (1h)"
+      lore: ["&7Mute the player for 1 hour"]
+      command: "mute %player% 1h %reason%"
+    tempmute:
+      slot: 12
+      material: HONEY_BOTTLE
+      name: "&6&lTemp Mute (1d)"
+      lore: ["&7Mute the player for 1 day"]
+      command: "mute %player% 1d %reason%"
+    kick:
+      slot: 14
+      material: LEATHER_BOOTS
+      name: "&c&lKick"
+      lore: ["&7Kick the player from the server"]
+      command: "kick %player% %reason%"
+    tempban:
+      slot: 15
+      material: IRON_SWORD
+      name: "&4&lTemp Ban (7d)"
+      lore: ["&7Ban the player for 7 days"]
+      command: "tempban %player% 7d %reason%"
+    ban:
+      slot: 16
+      material: BARRIER
+      name: "&4&lBan"
+      lore: ["&7Permanently ban the player"]
+      command: "ban %player% %reason%"
+  default-reason: "No reason specified"
+  log-to-console: true
+
+warps:
+  gui-title: "&b&lWarps"
+  gui-size: 54
+  teleport-delay-seconds: 3
+  cancel-on-move: true
+  cost-per-warp: 0.0
+
+eggs:
+  # Eggs are a fully virtual currency (a balance stored per-player), NOT a
+  # physical item, and NOT registered as a Vault Economy - Vault only
+  # supports one primary economy provider at a time, and that slot should
+  # stay free for your server's main currency plugin (EssentialsX, etc.),
+  # which the Auction House and Order System use instead. Eggs are their
+  # own separate ledger, managed entirely by FeatherMC.
+  starting-balance: 0
+  symbol: "eggs"
+
+shop:
+  gui-title: "&a&lEgg Shop"
+  gui-size: 54
+  # Each entry: item players receive, price in eggs, sell price in eggs, slot
+  items:
+    diamond:
+      slot: 10
+      material: DIAMOND
+      buy-price: 64
+      sell-price: 32
+      amount: 1
+      name: "&b&lDiamond"
+    iron_ingot:
+      slot: 11
+      material: IRON_INGOT
+      buy-price: 16
+      sell-price: 8
+      amount: 1
+      name: "&f&lIron Ingot"
+    golden_apple:
+      slot: 12
+      material: GOLDEN_APPLE
+      buy-price: 96
+      sell-price: 48
+      amount: 1
+      name: "&6&lGolden Apple"
+  placeholders:
+    enabled: true
+    # %feathermc_eggs% -> egg balance
+    # %feathermc_eggs_formatted% -> formatted egg balance
+
+duels:
+  # The name of the multiverse world duels are copied into
+  duel-world: "duel"
+  # Name of the template/regular duel arena world to copy FROM
+  template-arena: "duelarena"
+  arena-count: 50
+  arena-prefix: "duelarena_"
+  # Region offset spacing between copied arenas (blocks on X axis)
+  arena-spacing: 500
+  countdown-seconds: 5
+  gui-title: "&d&lDuel Arenas"
+  kits-enabled: true
+  return-to-spawn-on-finish: true
+
+auctionhouse:
+  gui-size: 54
+  # Listings take up all slots except the bottom row, which is reserved for
+  # the "Sell Held Item" button + pagination controls.
+  listings-per-page: 45
+  listing-duration-hours: 48
+  tax-percent: 5.0
+  min-price: 1.0
+  max-price: 1000000.0
+  # LuckPerms permission -> number of simultaneous LIVE listings allowed
+  # Highest matching value the player has permission for is used.
+  slot-permissions:
+    "feathermc.ah.slots.1": 1
+    "feathermc.ah.slots.3": 3
+    "feathermc.ah.slots.5": 5
+    "feathermc.ah.slots.10": 10
+  default-slots: 1
+
+ordersystem:
+  gui-size: 54
+  orders-per-page: 45
+  order-duration-hours: 72
+  min-price: 1.0
+  max-price: 1000000.0
+  # LuckPerms permission -> number of simultaneous LIVE orders allowed
+  slot-permissions:
+    "feathermc.order.slots.1": 1
+    "feathermc.order.slots.3": 3
+    "feathermc.order.slots.5": 5
+    "feathermc.order.slots.10": 10
+  default-slots: 1
+
+playtime:
+  gui-title: "&d&lPlaytime Rewards"
+  gui-size: 54
+  # Rewards trigger every N hours, starting at start-hour, up to max-hour
+  reward-interval-hours: 2
+  start-hour: 1
+  max-hour: 1000
+  # Commands run when a milestone is claimed. %player% is replaced.
+  reward-commands:
+    default:
+      - "give %player% diamond 1"
+      - "eco give %player% 100"
+  # Per-milestone overrides (optional), keyed by hour number
+  milestone-overrides:
+    100:
+      - "give %player% diamond_block 5"
+      - "eco give %player% 5000"
+    500:
+      - "give %player% netherite_ingot 3"
+      - "eco give %player% 25000"
+    1000:
+      - "give %player% netherite_block 5"
+      - "eco give %player% 100000"
+  autosave-interval-minutes: 5

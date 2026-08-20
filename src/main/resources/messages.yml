@@ -1,0 +1,135 @@
+# =========================================================
+#  FeatherMC Messages
+#  Every player-facing message the plugin sends lives here.
+#  %placeholders% are replaced per-message; see comments.
+#  Color codes use '&'.
+# =========================================================
+
+general:
+  no-permission: "&cYou don't have permission to do that."
+  player-only: "&cOnly players can do that."
+  player-not-found: "&cPlayer not found."
+  reloaded: "&aFeatherMC configuration reloaded."
+  unknown-subcommand: "&cUnknown command. Try &e/feathermc help"
+  invalid-number: "&cThat's not a valid number."
+
+help:
+  header: "&d&lFeatherMC &7- available commands:"
+  line: "&e/feathermc %sub% &7- %description%"
+
+punish:
+  usage: "&cUsage: /feathermc punish <player>"
+  applied: "&aApplied &e%action% &ato &e%player%"
+
+warp:
+  usage-warp: "&cUsage: /feathermc warp <name>"
+  usage-set: "&cUsage: /feathermc warp set <name>"
+  usage-del: "&cUsage: /feathermc warp del <name>"
+  not-found: "&cThat warp doesn't exist."
+  created: "&aWarp &e%warp% &acreated."
+  deleted: "&aWarp &e%warp% &adeleted."
+  teleporting: "&aTeleporting to &e%warp% &ain &e%seconds%s&a. Don't move!"
+  teleported: "&aTeleported to &e%warp%"
+  cancelled-moved: "&cTeleport cancelled - you moved."
+
+shop:
+  not-enough-eggs: "&cYou don't have enough eggs. You need &e%price% &cbut only have &e%balance%&c."
+  purchased: "&aPurchased &e%amount%x %item% &afor &e%price% eggs&a."
+  sold: "&aSold &e%amount%x %item% &afor &e%price% eggs&a."
+  not-enough-items: "&cYou don't have enough of that item to sell."
+
+eggs:
+  balance-self: "&aYou have &e%balance% eggs&a."
+  balance-other: "&e%player% &ahas &e%balance% eggs&a."
+  usage-pay: "&cUsage: /feathermc eggs pay <player> <amount>"
+  usage-admin: "&cUsage: /feathermc eggs <give|take|set> <player> <amount>"
+  invalid-amount: "&cAmount must be a positive number."
+  not-enough: "&cYou don't have that many eggs."
+  paid: "&aPaid &e%amount% eggs &ato &e%player%&a."
+  received: "&aYou received &e%amount% eggs &afrom &e%player%&a."
+  admin-set: "&aSet &e%player%'s &abalance to &e%amount% eggs&a."
+  admin-give: "&aGave &e%amount% eggs &ato &e%player%&a."
+  admin-take: "&aTook &e%amount% eggs &afrom &e%player%&a."
+
+duel:
+  usage: "&cUsage: /feathermc duel <player|accept|deny|cancel|arenas>"
+  admin-only: "&cYou don't have permission to set up duel arenas."
+  pos-set: "&aSet %pos% at your location."
+  pos-missing: "&cSet /feathermc duel pos1 and /feathermc duel pos2 in your template arena first."
+  self-duel: "&cYou can't duel yourself."
+  already-in-duel: "&cOne of you is already in a duel."
+  challenge-sent: "&aChallenge sent to &e%player%"
+  challenge-received: "&e%player% &achallenged you to a duel! &7/feathermc duel accept &aor &7/feathermc duel deny"
+  no-pending: "&cYou have no pending duel requests."
+  challenger-offline: "&cThat player is no longer online."
+  no-free-arena: "&cNo free duel arenas right now. Try again shortly."
+  starting: "&aDuel starting in arena #%arena% in %seconds%s..."
+  denied-self: "&cYou denied the duel request."
+  denied-other: "&c%player% denied your duel request."
+  cancelled: "&cCancelled your outgoing duel request."
+  won: "&aYou won the duel against &e%player%&a!"
+  lost: "&cYou lost the duel against &e%player%&c."
+  arenas-header: "&d&lDuel Arenas &7(%count% total)"
+  arena-line: "&7- Arena #%index%: %status%"
+  arena-free: "&aFree"
+  arena-in-use: "&cIn Use"
+  generating-world: "&ePreparing duel world '%world%'..."
+  no-multiverse: "&eMultiverse-Core not found - creating a plain world instead."
+  world-failed: "&cFailed to create/find world '%world%'."
+  copying: "&eCopying template (&f%dimensions%&e) into &f%count% &earenas. This may take a while..."
+  progress: "&7Progress: %done%/%total%"
+  generated: "&aGenerated &e%count% &aduel arenas in world '&e%world%&a'!"
+
+auctionhouse:
+  usage-sell: "&cHold the item, then click 'Sell Held Item' in the /feathermc ah menu."
+  invalid-price: "&cInvalid price."
+  price-range: "&cPrice must be between %min% and %max%."
+  no-item-held: "&cHold the item you want to list, then click 'Sell Held Item' again."
+  slots-full: "&cYou already have %active%/%max% live listings."
+  listed: "&aListed your item for &e%price%&a. (%active%/%max% slots used)"
+  not-available: "&cThat listing is no longer available."
+  reclaimed: "&aReclaimed your listing."
+  no-economy: "&cEconomy plugin (Vault) not found - cannot purchase."
+  cant-afford: "&cYou can't afford that (&e%price%&c)."
+  sold-notify-seller: "&aYour listing sold for &e%amount% &a(after tax)."
+  purchased: "&aPurchased item for &e%price%"
+  expired-returned: "&eYour auction listing expired and was returned to your inventory."
+  prompt-price: "&eType the price to list this item for in chat, or type 'cancel'."
+  cancelled-input: "&cListing cancelled."
+  gui-title: "&6&lAuction House"
+  gui-sell-button: "&a&lSell Held Item"
+  gui-sell-lore: "&7Click, then type a price in chat"
+  gui-next-page: "&e&lNext Page &7\u2192"
+  gui-prev-page: "&7\u2190 &e&lPrevious Page"
+  gui-page-lore: "&7Page %page%/%pages%"
+
+ordersystem:
+  invalid-input: "&cUsage: price then amount, e.g. '10 64'"
+  price-range: "&cInvalid price or amount."
+  no-item-held: "&cHold the item you want to buy, then click 'Create Order' again."
+  slots-full: "&cYou already have %active%/%max% live orders."
+  cant-afford: "&cYou need &e%cost% &cto fund this order."
+  no-economy: "&cEconomy plugin (Vault) not found."
+  created: "&aCreated order to buy &e%amount%x %item% &aat &e%price% &aeach (%active%/%max% slots used)."
+  not-found: "&cOrder not found."
+  cancelled: "&aOrder cancelled, remaining funds refunded."
+  not-available: "&cThat order is no longer available."
+  wrong-item: "&cHold &e%item% &cin your hand to sell into this order."
+  order-full: "&cThat order is already full."
+  sold: "&aSold &e%amount%x %item% &afor &e%payout%&a."
+  filled-notify: "&aYour order for %item% has been fully filled!"
+  expired-refund: "&eYour order expired - remaining funds refunded."
+  prompt-price-amount: "&eType 'price amount' in chat to create this order (e.g. '10 64'), or type 'cancel'."
+  cancelled-input: "&cOrder creation cancelled."
+  gui-title: "&2&lSell Orders"
+  gui-create-button: "&a&lCreate Order"
+  gui-create-lore: "&7Click, then hold the item and type '<price> <amount>' in chat"
+  gui-next-page: "&e&lNext Page &7\u2192"
+  gui-prev-page: "&7\u2190 &e&lPrevious Page"
+  gui-page-lore: "&7Page %page%/%pages%"
+
+playtime:
+  already-claimed: "&cYou already claimed this reward."
+  not-reached: "&cYou haven't reached %hours% hours yet."
+  claimed: "&aClaimed the &e%hours% hour &areward!"
+  hours-played: "&7You have played &e%hours% hours&7."
