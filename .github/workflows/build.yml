@@ -41,4 +41,8 @@ jobs:
           echo "path=$JAR_PATH" >> "$GITHUB_OUTPUT"
 
       - name: Upload jar artifact
-        uses:
+        uses: actions/upload-artifact@v4
+        with:
+          name: FeatherMC-jar
+          path: ${{ steps.jar.outputs.path }}
+          if-no-files-found: error
