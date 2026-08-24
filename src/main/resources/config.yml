@@ -1,0 +1,232 @@
+# =========================================================
+#  MegaPlugin Configuration
+#  Everything below can be changed without recompiling.
+# =========================================================
+
+punish:
+  gui-title: "&c&lPunish %player%"
+  gui-size: 27
+  ladder-size: 27
+  confirm-size: 27
+  default-reason: "No reason specified"
+  log-to-console: true
+
+  # Each category is a dye button on the main punish screen. "type" is
+  # either MUTE (confirm screen = Yes/No, uses "command") or BAN
+  # (confirm screen = Normal/IP, uses "command-normal" + "command-ip").
+  # FeatherMC tracks how many times a player has been punished under each
+  # category (plugins/FeatherMC/punish_history.yml) and auto-highlights the
+  # next tier in the ladder - staff can still click any tier manually.
+  categories:
+    minor_mute:
+      slot: 10
+      type: MUTE
+      material: LIGHT_BLUE_DYE
+      name: "&b&lMinor Mute"
+      tiers:
+        - duration: "1h"
+          command: "mute %player% 1h %reason%"
+        - duration: "6h"
+          command: "mute %player% 6h %reason%"
+        - duration: "1d"
+          command: "mute %player% 1d %reason%"
+
+    medium_mute:
+      slot: 11
+      type: MUTE
+      material: YELLOW_DYE
+      name: "&e&lMedium Mute"
+      tiers:
+        - duration: "1d"
+          command: "mute %player% 1d %reason%"
+        - duration: "3d"
+          command: "mute %player% 3d %reason%"
+        - duration: "7d"
+          command: "mute %player% 7d %reason%"
+
+    large_mute:
+      slot: 12
+      type: MUTE
+      material: ORANGE_DYE
+      name: "&6&lLarge Mute"
+      tiers:
+        - duration: "7d"
+          command: "mute %player% 7d %reason%"
+        - duration: "14d"
+          command: "mute %player% 14d %reason%"
+        - duration: "30d"
+          command: "mute %player% 30d %reason%"
+
+    minor_infractions:
+      slot: 14
+      type: BAN
+      material: WHITE_DYE
+      name: "&f&lMinor Server Infractions"
+      tiers:
+        - duration: "1d"
+          command-normal: "ban %player% 1d %reason%"
+          command-ip: "banip %player% 1d %reason%"
+        - duration: "3d"
+          command-normal: "ban %player% 3d %reason%"
+          command-ip: "banip %player% 3d %reason%"
+        - duration: "7d"
+          command-normal: "ban %player% 7d %reason%"
+          command-ip: "banip %player% 7d %reason%"
+
+    medium_infractions:
+      slot: 15
+      type: BAN
+      material: ORANGE_DYE
+      name: "&6&lMedium Server Infractions"
+      tiers:
+        - duration: "14d"
+          command-normal: "ban %player% 14d %reason%"
+          command-ip: "banip %player% 14d %reason%"
+        - duration: "30d"
+          command-normal: "ban %player% 30d %reason%"
+          command-ip: "banip %player% 30d %reason%"
+        - duration: "90d"
+          command-normal: "ban %player% 90d %reason%"
+          command-ip: "banip %player% 90d %reason%"
+        - duration: "180d"
+          command-normal: "ban %player% 180d %reason%"
+          command-ip: "banip %player% 180d %reason%"
+        - duration: "1y"
+          command-normal: "ban %player% 1y %reason%"
+          command-ip: "banip %player% 1y %reason%"
+
+    large_infractions:
+      slot: 16
+      type: BAN
+      material: RED_DYE
+      name: "&c&lLarge Server Infractions"
+      tiers:
+        - duration: "30d"
+          command-normal: "ban %player% 30d %reason%"
+          command-ip: "banip %player% 30d %reason%"
+        - duration: "90d"
+          command-normal: "ban %player% 90d %reason%"
+          command-ip: "banip %player% 90d %reason%"
+        - duration: "permanent"
+          command-normal: "ban %player% %reason%"
+          command-ip: "banip %player% %reason%"
+
+
+warps:
+  gui-title: "&b&lWarps"
+  gui-size: 54
+  teleport-delay-seconds: 3
+  cancel-on-move: true
+  cost-per-warp: 0.0
+
+eggs:
+  # Eggs are a fully virtual currency (a balance stored per-player), NOT a
+  # physical item, and NOT registered as a Vault Economy - Vault only
+  # supports one primary economy provider at a time, and that slot should
+  # stay free for your server's main currency plugin (EssentialsX, etc.),
+  # which the Auction House and Order System use instead. Eggs are their
+  # own separate ledger, managed entirely by FeatherMC.
+  starting-balance: 0
+  symbol: "eggs"
+
+shop:
+  gui-title: "&a&lEgg Shop"
+  gui-size: 54
+  # Each entry: item players receive, price in eggs, sell price in eggs, slot
+  items:
+    diamond:
+      slot: 10
+      material: DIAMOND
+      buy-price: 64
+      sell-price: 32
+      amount: 1
+      name: "&b&lDiamond"
+    iron_ingot:
+      slot: 11
+      material: IRON_INGOT
+      buy-price: 16
+      sell-price: 8
+      amount: 1
+      name: "&f&lIron Ingot"
+    golden_apple:
+      slot: 12
+      material: GOLDEN_APPLE
+      buy-price: 96
+      sell-price: 48
+      amount: 1
+      name: "&6&lGolden Apple"
+  placeholders:
+    enabled: true
+    # %feathermc_eggs% -> egg balance
+    # %feathermc_eggs_formatted% -> formatted egg balance
+
+duels:
+  # The name of the multiverse world duels are copied into
+  duel-world: "duel"
+  # Name of the template/regular duel arena world to copy FROM
+  template-arena: "duelarena"
+  arena-count: 50
+  arena-prefix: "duelarena_"
+  # Region offset spacing between copied arenas (blocks on X axis)
+  arena-spacing: 500
+  countdown-seconds: 5
+  gui-title: "&d&lDuel Arenas"
+  kits-enabled: true
+  return-to-spawn-on-finish: true
+
+auctionhouse:
+  gui-size: 54
+  # Listings take up all slots except the bottom row, which is reserved for
+  # the "Sell Held Item" button + pagination controls.
+  listings-per-page: 45
+  listing-duration-hours: 48
+  tax-percent: 5.0
+  min-price: 1.0
+  max-price: 1000000.0
+  # LuckPerms permission -> number of simultaneous LIVE listings allowed
+  # Highest matching value the player has permission for is used.
+  slot-permissions:
+    "feathermc.ah.slots.1": 1
+    "feathermc.ah.slots.3": 3
+    "feathermc.ah.slots.5": 5
+    "feathermc.ah.slots.10": 10
+  default-slots: 1
+
+ordersystem:
+  gui-size: 54
+  orders-per-page: 45
+  order-duration-hours: 72
+  min-price: 1.0
+  max-price: 1000000.0
+  # LuckPerms permission -> number of simultaneous LIVE orders allowed
+  slot-permissions:
+    "feathermc.order.slots.1": 1
+    "feathermc.order.slots.3": 3
+    "feathermc.order.slots.5": 5
+    "feathermc.order.slots.10": 10
+  default-slots: 1
+
+playtime:
+  gui-title: "&d&lPlaytime Rewards"
+  gui-size: 54
+  # Rewards trigger every N hours, starting at start-hour, up to max-hour
+  reward-interval-hours: 2
+  start-hour: 1
+  max-hour: 1000
+  # Commands run when a milestone is claimed. %player% is replaced.
+  reward-commands:
+    default:
+      - "give %player% diamond 1"
+      - "eco give %player% 100"
+  # Per-milestone overrides (optional), keyed by hour number
+  milestone-overrides:
+    100:
+      - "give %player% diamond_block 5"
+      - "eco give %player% 5000"
+    500:
+      - "give %player% netherite_ingot 3"
+      - "eco give %player% 25000"
+    1000:
+      - "give %player% netherite_block 5"
+      - "eco give %player% 100000"
+  autosave-interval-minutes: 5

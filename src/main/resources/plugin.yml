@@ -1,0 +1,55 @@
+name: FeatherMC
+version: '1.0.0'
+main: com.feathermc.FeatherMC
+api-version: '1.21'
+author: YourName
+softdepend: [PlaceholderAPI, LuckPerms, Multiverse-Core, Vault]
+
+commands:
+  feathermc:
+    description: FeatherMC - all-in-one server plugin
+    usage: /feathermc <punish|warp|shop|duel|ah|order|playtime|eggs|reload>
+    aliases: [fmc]
+
+permissions:
+  feathermc.punish:
+    default: op
+  feathermc.warp.use:
+    default: true
+  feathermc.warp.set:
+    default: op
+  feathermc.shop.use:
+    default: true
+  feathermc.duel.use:
+    default: true
+  feathermc.duel.admin:
+    default: op
+  feathermc.ah.use:
+    default: true
+  feathermc.order.use:
+    default: true
+  feathermc.playtime.use:
+    default: true
+  feathermc.eggs.use:
+    default: true
+  feathermc.eggs.admin:
+    default: op
+  feathermc.reload:
+    default: op
+  # LuckPerms-driven live slot permissions (examples, all configurable)
+  feathermc.ah.slots.1:
+    default: true
+  feathermc.ah.slots.3:
+    default: false
+  feathermc.ah.slots.5:
+    default: false
+  feathermc.ah.slots.10:
+    default: false
+  feathermc.order.slots.1:
+    default: true
+  feathermc.order.slots.3:
+    default: false
+  feathermc.order.slots.5:
+    default: false
+  feathermc.order.slots.10:
+    default: false
